@@ -1,3 +1,3 @@
 # Satisfactory TODO list:
-- [] test
+- [ ] test
 - [X] test2
