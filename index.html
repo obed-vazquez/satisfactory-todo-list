@@ -94,6 +94,10 @@
         .completed .checkbox {
             color: #4A90E2;
         }
+
+        .completed .progress {
+            color: #4A90E2;
+        }
         
         .subtask-list {
             list-style: none;
@@ -123,6 +127,10 @@
         .subtask.completed {
             color: rgba(74, 144, 226, 0.8);
         }
+
+        .subtask.progress {
+            color: rgba(74, 144, 226, 0.8);
+        }
         
         @keyframes scan {
             0% { transform: translateX(-100%); }
@@ -145,12 +153,12 @@
         <div class="header">⚡ Factory Objectives ⚡</div>
         
         <ul class="todo-list">
-            <li class="todo-item completed"><span class="checkbox">↻</span><span class="task-text">Space Elevator Factory</span></li>
+            <li class="todo-item progress"><span class="checkbox">↻</span><span class="task-text">Space Elevator Factory</span></li>
             <li class="todo-item"> <span class="checkbox">☐</span><span class="task-text">Blue Print Designer</span></li>
                 <ul>
                     <li><span class="checkbox">☐</span><span class="task-text">Build modules custom designs</span></li>
                 </ul>
-            <li class="todo-item"> <span class="checkbox">☑</span><span class="task-text">Tube Cannons</span></li>
+            <li class="todo-item completed"> <span class="checkbox">☑</span><span class="task-text">Tube Cannons</span></li>
             <li class="todo-item"><span class="checkbox">☐</span><span class="task-text">The Grid</span></li>
         </ul>
         
