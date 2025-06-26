@@ -9,7 +9,7 @@
         Smelter Units
             + Iron Ore->Ingots Unit
             + Test iron Ore->Ingots Unit
-            Coper Unit
+            Copper Unit
             Caterium Unit
             Test all Smelter Units
         Constructor Units

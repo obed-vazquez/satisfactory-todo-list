@@ -51,7 +51,7 @@ body {
     background: var(--color-primary-bg);
     font-family: 'Orbitron', monospace;
     color: var(--color-primary);
-    font-size: 11px;
+    font-size: 16px;
     min-width: 200px;
     /* Fondo de prueba para overlay en streams */
     background-image: linear-gradient(rgba(255,255,255,0.1),rgba(255,255,255,0.1)),
@@ -90,7 +90,7 @@ body.overlay-bg-off {
 .header {
     text-align: left;
     font-weight: 700;
-    font-size: 15px;
+    font-size: 24px;
     color: #E39F61 !important;
     margin-bottom: 5px;
     text-transform: uppercase;
@@ -177,7 +177,7 @@ body.overlay-bg-off {
     font-weight: 700;
     letter-spacing: 0.2px;
     text-shadow: var(--shadow-strong);
-    font-size: 0.95em;
+    font-size: 1.12em;
 }
 
 .subtask-list {
