@@ -1,10 +1,11 @@
 + tube cannons
 + Conseguir Sumersloops p/Storage Factory
 + Mejorar texto de lista TODO
-Agregar los links sociales
++ Agregar los links sociales
 - Space Elevator Factory
 - !The Grid
-    + Blue Print Designer
+    + Blue Print Designer unlock
+    - Grid Designs
         Smelter Units
             + Iron Ore->Ingots Unit
             + Test iron Ore->Ingots Unit
@@ -12,4 +13,5 @@ Agregar los links sociales
             Caterium Unit
             Test all Smelter Units
         Constructor Units
+    Build the Grid
             
