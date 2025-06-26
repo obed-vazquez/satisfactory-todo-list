@@ -1,0 +1,481 @@
+/*
+====================================================
+  Satisfactory TODO List - CSS
+  Organización y variables para fácil mantenimiento
+====================================================
+
+  Guía de uso:
+  - Variables CSS agrupadas por propósito en :root
+  - Comentarios para cada sección y grupo de variables
+  - Usa las variables para colores, sombras y opacidades
+  - Modifica aquí para cambiar el tema global
+====================================================
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap');
+
+:root {
+  /* === Colores principales === */
+  --color-primary: #E39F61;         /* Naranja principal (texto, iconos) */
+  --color-primary-bg: transparent;  /* Fondo principal transparente para overlay */
+  --color-primary-shadow: rgba(0,0,0,0.8); /* Sombra fuerte */
+
+  /* === Colores secundarios === */
+  --color-secondary: #A06CA0;       /* Morado (progreso, detalles) */
+  --color-secondary-light: #C9A6C9; /* Morado claro sólido */
+  --color-secondary-bg: #FFE0C2;    /* Naranja claro sólido para hover */
+
+  /* === Colores de estado === */
+  --color-completed: #4A90E2;       /* Azul (completado) */
+  --color-completed-light: #B3D1F2; /* Azul claro sólido */
+  --color-progress: #A06CA0;        /* Morado (progreso) */
+
+  /* === Colores de sub-elementos === */
+  --color-subtask: #E39F61;         /* Naranja sólido */
+  --color-footer: #E39F61;          /* Naranja sólido */
+
+  /* === Otros === */
+  --shadow-strong: 2px 2px 4px rgba(0,0,0,0.95);
+  --shadow-footer: 1px 1px 2px rgba(0,0,0,0.85);
+
+  /* === Imagen de fondo para pruebas (overlay) === */
+  --show-bg-image: 1; /* Cambia a 0 para ocultar el fondo */
+  --bg-image-url: url('https://a.storyblok.com/f/214788/1280x720/28950f3ec7/satisfactory_1-0_card_background.jpg');
+  --bg-image-opacity: 0.7; /* Ajusta la opacidad del fondo */
+}
+
+/* ================= Layout & Tipografía ================ */
+body {
+    margin: 0;
+    padding: 15px;
+    background: var(--color-primary-bg);
+    font-family: 'Orbitron', monospace;
+    color: var(--color-primary);
+    font-size: 14px;
+    min-width: 300px;
+    /* Fondo de prueba para overlay en streams */
+    background-image: linear-gradient(rgba(255,255,255,0.1),rgba(255,255,255,0.1)),
+      var(--bg-image-url);
+    background-size: 200% 200%;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 1;
+}
+
+body.bg-satisfactory {
+    background-image: linear-gradient(rgba(255,255,255,0.1),rgba(255,255,255,0.1)),
+      url('https://a.storyblok.com/f/214788/1280x720/28950f3ec7/satisfactory_1-0_card_background.jpg/m/fit-in/800x800');
+    background-size: 200% 200%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+body:not(.bg-satisfactory) {
+    background-image: none !important;
+}
+
+body.overlay-bg-off {
+    background-image: none !important;
+}
+
+.container {
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    box-shadow: none;
+    backdrop-filter: none;
+}
+
+.header {
+    text-align: left;
+    font-weight: 700;
+    font-size: 22px;
+    color: #E39F61 !important;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: var(--shadow-strong);
+}
+
+/* =================== Componentes ===================== */
+.todo-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.todo-list li,
+.todo-item {
+    margin-bottom: 0.5px;
+    padding: 0.05em 0.1em;
+}
+
+.todo-item {
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    margin: 0.5px 0;
+    padding: 1px 0;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Hover transparente y acumulativo SOLO si el mouse está sobre el subnivel */
+.todo-item:hover {
+    background: rgba(255, 224, 194, 0.18) !important;
+}
+.todo-item:hover .todo-item:hover {
+    background: rgba(255, 224, 194, 0.28) !important;
+}
+.todo-item:hover .todo-item:hover .todo-item:hover {
+    background: rgba(255, 224, 194, 0.38) !important;
+}
+
+/* Aplica hover también a los completados */
+.todo-item.completed:hover {
+    background: rgba(255, 224, 194, 0.18) !important;
+}
+
+.todo-item.completed {
+    background: transparent;
+    color: var(--color-completed);
+}
+
+/* =================== Estados ========================= */
+.progress > .checkbox,
+.progress > .task-text {
+    color: var(--color-progress);
+    opacity: 1;
+}
+
+.progress .checkbox {
+    color: var(--color-progress);
+}
+
+.completed .task-text {
+    text-decoration: line-through;
+    opacity: 1;
+    color: var(--color-completed);
+}
+
+.completed .checkbox {
+    color: var(--color-completed);
+}
+
+/* =================== Elementos ======================= */
+.checkbox {
+    font-size: 16px;
+    margin-right: 8px;
+    color: var(--color-primary);
+    text-shadow: var(--shadow-strong);
+}
+
+.task-text {
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-shadow: var(--shadow-strong);
+}
+
+.subtask-list {
+    list-style: none;
+    padding: 0;
+    margin: 4px 0 0 18px;
+}
+
+.subtask {
+    background: var(--color-primary-bg);
+    border: none;
+    margin: 2px 0;
+    padding: 1px 0;
+    font-size: 11px;
+    color: var(--color-subtask);
+}
+
+.subtask .checkbox {
+    font-size: 12px;
+    margin-right: 4px;
+}
+
+.subtask .task-text {
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+}
+
+.subtask.completed {
+    color: var(--color-completed-light);
+}
+
+.subtask.progress {
+    color: var(--color-completed-light);
+}
+
+/* === Checkbox estilo Satisfactory (SVG) === */
+.custom-checkbox {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    margin-bottom: 0.5px;
+    min-height: 28px;
+}
+
+.custom-checkbox input[type="checkbox"] {
+    opacity: 0;
+    position: absolute;
+    width: 0;
+    height: 0;
+}
+
+.checkbox-box {
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+    border-radius: 3px;
+    margin-right: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    flex-shrink: 0;
+    border: 1px solid #d35400;
+}
+
+.checkbox-box::after {
+    content: "";
+    width: 32px;
+    height: 32px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M7 17 L13 23 L25 11' stroke='white' stroke-width='5' fill='none'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 1;
+}
+
+.custom-checkbox input[type="checkbox"]:not(:checked) + .checkbox-box {
+    background: rgba(255, 255, 255, 0.15);
+    border: 2px solid orange;
+}
+
+.custom-checkbox input[type="checkbox"]:not(:checked) + .checkbox-box::after {
+    opacity: 0;
+}
+
+/* Checkbox especial para '-' */
+.checkbox-minusbox {
+    width: 48px;
+    height: 48px;
+    background: rgba(255, 255, 255, 0.5); /* Blanco translúcido, aún menos transparente */
+    border-radius: 3px;
+    margin-right: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centrado */
+    position: relative;
+    flex-shrink: 0;
+    border: 2px solid orange;
+}
+
+.checkbox-minusbox::after {
+    content: none !important;
+}
+
+.checkbox-minus-symbol {
+    color: orange;
+    font-size: 40px;
+    font-weight: bold;
+    line-height: 1;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centrado */
+    width: 100%;
+    height: 100%;
+    font-family: 'Orbitron', monospace, 'Courier New', Courier, monospace;
+    text-align: center;
+    letter-spacing: 0;
+    padding-left: 0;
+}
+
+.checkbox-minus-symbol span {
+    display: block;
+    text-align: center;
+    font-size: 40px;
+    font-family: inherit;
+    line-height: 1;
+    margin: 0;
+}
+
+/* Opcional: refuerza el subrayado de completado */
+.completed .task-text {
+    text-decoration-thickness: 2px;
+    text-decoration-color: #222;
+}
+
+/* === Brillo negro expandido realista y visible en todos los navegadores === */
+.task-text,
+.checkbox-label,
+.subtask .task-text {
+    text-shadow:
+        0 0 4px rgba(0,0,0,0.85),
+        0 0 12px rgba(0,0,0,0.7),
+        0 0 32px rgba(0,0,0,0.55),
+        0 0 64px rgba(0,0,0,0.35),
+        0 0 128px rgba(0,0,0,0.22),
+        0 0 192px rgba(0,0,0,0.15),
+        0 0 256px rgba(0,0,0,0.12),
+        0 0 320px rgba(0,0,0,0.09),
+        0 0 400px rgba(0,0,0,0.07);
+}
+
+/* === Halo negro EXTERNO, notorio y sin capas internas === */
+.task-text,
+.checkbox-label,
+.subtask .task-text {
+    color: #fff;
+    -webkit-text-stroke: 0.5px rgba(0,0,0,0.35);
+    text-shadow:
+        0 0 32px rgba(0,0,0,0.75),
+        0 0 64px rgba(0,0,0,0.45);
+}
+
+/* Para navegadores que no soportan text-stroke, el halo sigue ayudando */
+
+/* === Outline negro tipo "stroke" clásico, del tamaño del texto y difuminado === */
+.task-text,
+.checkbox-label,
+.subtask .task-text {
+    color: #fff;
+    -webkit-text-stroke: 2px rgba(0,0,0,0.85);
+    text-shadow:
+        1px 0 2px rgba(0,0,0,0.7),
+        0 1px 2px rgba(0,0,0,0.7),
+        -1px 0 2px rgba(0,0,0,0.7),
+        0 -1px 2px rgba(0,0,0,0.7),
+        2px 2px 4px rgba(0,0,0,0.45),
+        -2px -2px 4px rgba(0,0,0,0.3);
+}
+
+/* === SOLO contorno difuminado para items y subtasks, NO para el header === */
+.task-text,
+.checkbox-label,
+.subtask .task-text {
+    color: #fff;
+    -webkit-text-stroke: 0px transparent;
+    text-shadow:
+        1px 0 2px rgba(0,0,0,0.85),
+        0 1px 2px rgba(0,0,0,0.85),
+        -1px 0 2px rgba(0,0,0,0.85),
+        0 -1px 2px rgba(0,0,0,0.85),
+        2px 2px 4px rgba(0,0,0,0.45),
+        -2px -2px 4px rgba(0,0,0,0.3);
+}
+
+.header {
+    color: #E39F61 !important;
+    -webkit-text-stroke: 0px transparent;
+    text-shadow: var(--shadow-strong);
+}
+
+/* =================== Animaciones y extras ============ */
+@keyframes scan {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+.footer {
+    text-align: left;
+    margin-top: 10px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #E39F61 !important;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: var(--shadow-footer);
+}
+
+.progress-bar {
+    position: relative;
+    width: 100%;
+    height: 6px; /* Antes 2px, ahora más grueso */
+    margin-bottom: 10px;
+    background: transparent;
+}
+.progress-bar-effect {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 6px; /* Antes 2px, ahora más grueso */
+    background: linear-gradient(90deg, transparent, var(--color-primary), transparent);
+    animation: scan 2s linear infinite;
+}
+
+.todo-item ul {
+    margin-top: 1px;
+    margin-bottom: 1px;
+}
+
+/* Separar los caracteres del texto SOLO en items de lista sin checkbox */
+.todo-list li:not(:has(.custom-checkbox)),
+.subtask-list li:not(:has(.custom-checkbox)) {
+    letter-spacing: 0.18em;
+}
+
+/*
+Para máxima compatibilidad, agrega la clase .list-text a los <li> que NO tengan checkbox en tu HTML.
+Luego, este CSS separa los caracteres solo en esos elementos.
+*/
+.list-text {
+    letter-spacing: 0.18em;
+    font-size: 1.08em;
+    color: #fff;
+    font-family: 'Orbitron', monospace, 'Courier New', Courier, monospace;
+    font-weight: 700;
+}
+
+.completed .list-text {
+    text-decoration: line-through;
+    text-decoration-thickness: 0.5px;
+    text-decoration-color: rgba(255,255,255,0.35); /* Línea más transparente */
+    opacity: 1; /* El texto NO es transparente */
+    filter: none;
+}
+
+/* Solo el texto principal de los ítems en progreso será naranja (selector universal y robusto) */
+li.todo-item.in-progress > label > .main-task-text {
+    color: var(--color-primary, #E39F61) !important;
+}
+
+/* Color naranja solo para el texto principal de ítems en progreso, usando clase directa */
+.main-task-in-progress {
+    color: var(--color-primary, #E39F61) !important;
+}
+
+/* =================== Advertencias y Errores ============ */
+.warning-icon {
+    display: inline-block;
+    margin-left: 2px;
+    color: #E39F61;
+    font-size: 1.2em;
+    animation: warning-blink 1s steps(2, start) infinite;
+    vertical-align: middle;
+    filter: drop-shadow(0 0 4px #E39F61);
+}
+
+@keyframes warning-blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.2; }
+}
+
+.checkbox-label.completed-text {
+    text-decoration: line-through;
+    text-decoration-thickness: 1px;
+    text-decoration-color: rgba(255,255,255,0.45);
+    opacity: 1;
+    filter: none;
+}
+

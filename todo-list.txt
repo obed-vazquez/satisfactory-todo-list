@@ -1,0 +1,15 @@
++ tube cannons
++ Conseguir Sumersloops p/Storage Factory
++ Mejorar texto de lista TODO
+Agregar los links sociales
+- Space Elevator Factory
+- !The Grid
+    + Blue Print Designer
+        Smelter Units
+            + Iron Ore->Ingots Unit
+            + Test iron Ore->Ingots Unit
+            Coper Unit
+            Caterium Unit
+            Test all Smelter Units
+        Constructor Units
+            
