@@ -2,6 +2,7 @@
 + Conseguir Sumersloops p/Storage Factory
 + Mejorar texto de lista TODO
 + Agregar los links sociales
+Blue Print Persistance
 Storage Factory
     Migrar Biomass generation => Storage Factory
     Construir nuevos Novelisks con biomass SF
