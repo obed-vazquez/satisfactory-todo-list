@@ -9,7 +9,7 @@ Storage Factory
     Construir Fabric en SF
 MAM Upgrades con Fabric
 - Space Elevator Factory
-- !The Grid
+- The Grid
     + Blue Print Designer unlock
     - Grid Designs
         Smelter Units
