@@ -24,7 +24,7 @@ fetch('todo-list.txt')
         checkboxHtml = `<input type="checkbox"><span class="checkbox-box"></span>`;
       }
       // Reemplaza cada '!' en el texto por el icono de advertencia
-      const labelWithWarning = label.replace(/!/g, '<span class="warning-icon" title="¡Atención!">&#9888;</span>');
+      // const labelWithWarning = label.replace(/!/g, '<span class="warning-icon" title="¡Atención!">&#9888;</span>');
       // Aplica color naranja inline si es inProgress (tiene '-')
       let textStyle = '';
       let textClass = 'checkbox-label';
