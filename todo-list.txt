@@ -1,12 +1,8 @@
-+ tube cannons
-+ Conseguir Sumersloops p/Storage Factory
-+ Mejorar texto de lista TODO
-+ Agregar los links sociales
-Blue Print Persistance
-Storage Factory
-    Migrar Biomass generation => Storage Factory
++ Blue Print Persistance
+Consumibles Factory
+    + Migrar Biomass generation => Storage Factory
+    + Construir Fabric en SF
     Construir nuevos Novelisks con biomass SF
-    Construir Fabric en SF
 MAM Upgrades con Fabric
 - Space Elevator Factory
 - The Grid
@@ -16,8 +12,8 @@ MAM Upgrades con Fabric
             + Iron Ore->Ingots Unit
             + Test iron Ore->Ingots Unit
             + Copper Unit
-            Caterium Unit
-            Test all Smelter Units
+            + Caterium Unit
+            - Test all Smelter Units
         Constructor Units
-    Build the Grid
+    - Build the Grid
             
